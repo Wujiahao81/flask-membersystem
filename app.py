@@ -9,6 +9,7 @@ app.secret_key="anystringbutsecret"
 
 #處理路由
 @app.route("/")
+@app.route("/Hello")
 def index():
     
     # print("請求方法",request.method)
