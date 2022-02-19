@@ -1,7 +1,9 @@
 import pymongo
-client = pymongo.MongoClient("mongodb+srv://root:666666cs@cluster0.h9pli.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://root:666666cs@cluster0.h9pli.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", tls=True, tlsAllowInvalidCertificates=True)
 db = client.member_system
-print("Database successfully connected")
+print("success!!!")
+#如果因為驗證問題無法執行可以在後面試著加 ("自己的mongodb連線網址", tls=True, tlsAllowInvalidCertificates=True)
+#https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3
 
 from flask import *
 app=Flask(__name__,static_folder="static",static_url_path="/")
@@ -100,4 +102,4 @@ def signout():
 #     else:
 #         return "Hello" +username
 
-app.run('0.0.0.0')
+app.run(port=3000)
