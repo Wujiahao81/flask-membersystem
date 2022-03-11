@@ -1,5 +1,6 @@
 import pymongo
 client = pymongo.MongoClient("mongodb+srv://root:666666cs@cluster0.h9pli.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", tls=True, tlsAllowInvalidCertificates=True)
+client = pymongo.MongoClient("自己的mongodb連線網址")
 db = client.member_system
 print("success!!!")
 #如果因為驗證問題無法執行可以在後面試著加 ("自己的mongodb連線網址", tls=True, tlsAllowInvalidCertificates=True)
