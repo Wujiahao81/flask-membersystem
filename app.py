@@ -1,5 +1,4 @@
 import pymongo
-client = pymongo.MongoClient("mongodb+srv://root:666666cs@cluster0.h9pli.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", tls=True, tlsAllowInvalidCertificates=True)
 client = pymongo.MongoClient("自己的mongodb連線網址")
 db = client.member_system
 print("success!!!")
@@ -48,7 +47,7 @@ def signup():
     #從前端接收資料
     nickname=request.form["nickname"]
     email=request.form["email"]
-    passward=request.form["passward"]
+    password=request.form["password"]
     #根據接收到的資料和資料互動
     collection=db.user
     #檢查會員集合中是否有相同email的文件資料
@@ -61,7 +60,7 @@ def signup():
     collection.insert_one({
         "nickname":nickname,
         "email":email,
-        "passward":passward
+        "password":password
     })
     return redirect("/")
 
@@ -73,14 +72,14 @@ def register():
 def signin():
     #從前端取得使用者的輸入
     email=request.form["email"]
-    passward=request.form["passward"]
+    password=request.form["password"]
     #和資料庫互動
     collection=db.user
     #檢查信箱密碼是否正確
     result=collection.find_one({
         "$and":[
             {"email":email},
-            {"passward":passward}
+            {"password":password}
         ]
     })
     #找不到對應的資料，登入失敗，導向到錯誤頁面

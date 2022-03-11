@@ -21,7 +21,7 @@ printer = turtle.Turtle()
 printer.hideturtle()
 printer.penup()
 printer.back(200)
-printer.write("贈給最親愛的 筠潔\n\n", align="right", font=("楷體", 16, "bold"))
+printer.write("贈給最親愛的 昀潔\n\n", align="right", font=("楷體", 16, "bold"))
 printer.write("from justin", align="center", font=("楷體", 12, "bold"))
  
 # 花蕊
