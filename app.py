@@ -4,6 +4,7 @@ db = client.member_system
 print("success!!!")
 #如果因為驗證問題無法執行可以在後面試著加 ("自己的mongodb連線網址", tls=True, tlsAllowInvalidCertificates=True)
 #https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3
+#熱心網友提供的另一個certificate failed的解決方法 : https://ithelp.ithome.com.tw/questions/10204384
 
 from flask import *
 app=Flask(__name__,static_folder="static",static_url_path="/")
